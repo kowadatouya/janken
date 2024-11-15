@@ -6,24 +6,24 @@ def janken_main():
     count = 0
     playercount = 0
     computercount = 0
+    playerhand = player.pon()
+    computerhand = computer.pon()
     
     while count < 3:
-        player()
-        computer()
-        if(player(1) and computer(2) or player(2) and computer(3) or player(3) and computer(1)):
+        if(playerhand == 1 and computerhand == 2 or playerhand == 2 and computerhand == 3 or playerhand == 3 and computerhand == 1):
             print(F"あなたの手:{player}")
             print(F"相手の手:{computer}")
-            print(janken_judge.win)
+            print(janken_judge.judge())
             count += 1
             playercount += 1
-        elif(player(1) and computer(1) or player(2) and computer(2) or player(3) and computer(3)):
+        elif(playerhand == 1 and computerhand == 1 or playerhand == 2 and computerhand == 2 or playerhand == 3 and computerhand == 3):
             print(F"あなたの手:{player}")
             print(F"相手の手:{computer}")
-            print(janken_judge.drow)
+            print(janken_judge.judge())
         else:
             print(F"あなたの手:{player}")
             print(F"相手の手:{computer}")
-            print(janken_judge.lose)
+            print(janken_judge.judge())
             count += 1
             computercount += 1
             
@@ -31,9 +31,11 @@ def janken_main():
     print(F"あなた:{playercount}勝")
     print(F"あなた:{computercount}勝")
     if(playercount >= 2):
-        print("あなたの勝ちです！")
+        print("あなたの総合勝利です！")
     else:
-        print("コンピュータの勝ちです。")
+        print("コンピュータの総合勝利です。")
+        
+janken_main()
     
             
             
